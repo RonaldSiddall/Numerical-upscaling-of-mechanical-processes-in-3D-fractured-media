@@ -1,11 +1,10 @@
 import GenerateMacroFields
 def main():
-    # 2. Cyklus, který projde všechny soubory jeden po druhém
     vtu_files = [
         "mechanics-000000_0.vtu",
         "mechanics-000000_1.vtu",
         "mechanics-000000_2.vtu",
-        "mechanics-0000100_3.vtu",
+        "mechanics-000000_3.vtu",
         "mechanics-000000_4.vtu",
         "mechanics-000000_5.vtu"
     ]

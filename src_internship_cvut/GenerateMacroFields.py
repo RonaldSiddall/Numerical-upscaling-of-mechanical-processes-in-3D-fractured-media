@@ -24,7 +24,7 @@ def compute_macro_deformation_on_RVE(displacement_field, normals, areas, volume_
 
     # Vydělení celkovým objemem RVE
     epsilon_macro_tensor = (1 / volume_RVE) * epsilon_macro_tensor
-    return epsilon_macro_tensor
+    return -epsilon_macro_tensor
 
 
 def compute_macro_stress_on_RVE(stress_field, normals, positions_of_centers, areas, volume_RVE):
@@ -51,7 +51,7 @@ def compute_macro_stress_on_RVE(stress_field, normals, positions_of_centers, are
 
     # Vydělení celkovým objemem RVE
     sigma_macro_tensor = (1 / volume_RVE) * sigma_macro_tensor
-    return sigma_macro_tensor
+    return -sigma_macro_tensor
 
 
 # ===================================================================================
@@ -89,7 +89,7 @@ def get_amount_of_boundary_elements(vtu_file):
         return None
 
 # ===================================================================================
-# Generování makroskopických tenzorů pro jednotlivé soubory a jejich hromadné zpracování
+# Generování makroskopických tenzorů pro jednotlivé soubory a jejich zpracování
 # ===================================================================================
 
 def generate_macro_deformation_for_one_file(vtu_file, volume_RVE):
@@ -115,7 +115,7 @@ def generate_macro_stress_for_one_file(vtu_file, volume_RVE):
         return None
 
 # ===================================================================================
-# 4. HROMADNÉ ZPRACOVÁNÍ A VÝPISY
+# Zobrazení informací o zpracovávaných souborech a celkovém průběhu zpracování
 # ===================================================================================
 
 def generate_macro_deformation_for_all_files(vtu_files, volume_RVE):
@@ -123,7 +123,7 @@ def generate_macro_deformation_for_all_files(vtu_files, volume_RVE):
     print(f"Zpracovávají se následující .vtu soubory pro makro deformace:\n {vtu_files}")
     print(f"Objem RVE použitý pro výpočty: {volume_RVE}")
     print(
-        f" Počet hraničních elementů {get_amount_of_boundary_elements(vtu_files[0])} (pro první soubor, ostatní se předpokládají podobné)")
+        f" Počet hraničních elementů: {get_amount_of_boundary_elements(vtu_files[0])} (pro první soubor, ostatní se předpokládají podobné)")
     print("=====================================================================")
 
     for vtu_file in vtu_files:
