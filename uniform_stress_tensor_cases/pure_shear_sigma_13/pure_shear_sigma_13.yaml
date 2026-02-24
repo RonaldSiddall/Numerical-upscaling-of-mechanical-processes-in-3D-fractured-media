@@ -1,0 +1,96 @@
+# -----------------------------------------------------------------------------------------------------------
+# Flow123d Input File
+# Project: Internship CTU 2026
+# Author: Ronald Ch. Siddall
+# Description: Linear elastic cube, pure shear stress XZ plane
+# Stress tensor is of the form:
+#        | sigma_11 sigma_12 sigma_13 |   in this case | 0   0   1e6 |
+# sigma =| sigma_21 sigma_22 sigma_23 |        =>      | 0   0   0   |
+#        | sigma_31 sigma_32 sigma_33 |                | 1e6 0   0   |
+# -----------------------------------------------------------------------------------------------------------
+# The goal: create a pure shear stress state in the XZ plane i.e. only sigma_13 = sigma_31 are non-zero
+# The shear stress state is induced by applying tangential tractions on the X and Z boundary faces.
+# And a minimal kinematic constraint is introduced to prevent free motion
+# ------------------------------------------------------------------------------------------------------------
+
+flow123d_version: 3.9.0
+
+problem: !Coupling_Sequential
+  description: "3D linear elastic cube, pure shear stress XZ plane"
+
+  mesh:
+    mesh_file: ../uniform_stress_cube_3d.msh
+
+  flow_equation: !Coupling_Iterative
+    input_fields:
+      - region: rock
+
+    time:
+      end_time: 1
+
+    a_tol: 1e-18
+    r_tol: 1e-18
+
+    flow_equation: !Flow_Darcy_LMH
+      gravity: [0, 0, 0]
+
+      input_fields:
+        - region: rock
+          init_pressure: 0
+
+        - region: .BOUNDARY
+          bc_type: dirichlet
+          bc_pressure: 0
+
+      output:
+        fields: []
+
+    mechanics_equation: !Elasticity_Linear
+      output_stream:
+        file: mechanics.pvd
+        format: !vtk
+          variant: ascii
+
+      output:
+        fields:
+          - displacement
+          - stress
+
+      solver: !Petsc
+        a_tol: 1e-14
+        r_tol: 1e-14
+
+      input_fields:
+        - region: rock
+          young_modulus: 1e9
+          poisson_ratio: 0.25
+
+        # For pure shear, we can not use displacement_n as it would restrict the skew deformation
+        # Therefore, we fix only one corner point 
+        - region: .fix_point_3_DOFs
+          bc_type: displacement
+          bc_displacement: [0, 0, 0]
+
+        # Y surfaces have zero normal displacement, prevents motion in Y direction i.e. u_y = 0
+        - region: [.surface_y_plus, .surface_y_minus]
+          bc_type: displacement_n
+          bc_displacement_n: 0
+
+
+        # For the X surfaces (normals in X direction), the tangential traction acts in the Z direction
+        - region: .surface_x_plus
+          bc_type: traction
+          bc_traction: [0, 0, 1e6]
+        
+        - region: .surface_x_minus
+          bc_type: traction
+          bc_traction: [0, 0, -1e6]
+
+        # For the Z surfaces (normals in Z direction), the tangential traction acts in the X direction
+        - region: .surface_z_plus
+          bc_type: traction
+          bc_traction: [1e6, 0, 0]
+
+        - region: .surface_z_minus
+          bc_type: traction
+          bc_traction: [-1e6, 0, 0]
