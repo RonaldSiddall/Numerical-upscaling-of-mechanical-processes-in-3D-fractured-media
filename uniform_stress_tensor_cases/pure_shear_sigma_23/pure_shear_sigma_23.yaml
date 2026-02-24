@@ -65,16 +65,9 @@ problem: !Coupling_Sequential
           young_modulus: 1e9
           poisson_ratio: 0.25
 
-        # For pure shear, we can not use displacement_n as it would restrict the skew deformation
-        # Therefore, we fix only one corner point 
-        - region: .fix_point_3_DOFs
-          bc_type: displacement
-          bc_displacement: [0, 0, 0]
-
-        # X surfaces have zero normal displacement, prevents motion in X direction i.e. u_x = 0
-        - region: [.surface_x_plus, .surface_x_minus]
+        - region: [.surface_x_minus, .surface_y_minus, .surface_z_minus]
           bc_type: displacement_n
-          bc_displacement_n: 0
+          bc_displacement: 0.0
 
 
         # For the Y surfaces (normals in Y direction), the tangential traction acts in the Z direction

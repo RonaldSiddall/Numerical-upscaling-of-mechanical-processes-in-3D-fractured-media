@@ -17,7 +17,6 @@
 #	Point with coordinates (0, 1, 0): u_z = 0 takes away 1 degree of freedom 
 # Using roller supports (zero normal displacement) on the "minus" planes is required
 # This provides the same statically determinate support (6 DOFs taken away)
-# while still allowing the cube to freely contract in transverse directions due to Poissons effect
 # ------------------------------------------------------------------------------------------------------------
 
 flow123d_version: 3.9.0

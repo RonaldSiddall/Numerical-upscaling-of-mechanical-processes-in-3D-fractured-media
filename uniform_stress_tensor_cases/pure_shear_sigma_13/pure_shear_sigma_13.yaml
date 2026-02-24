@@ -10,13 +10,12 @@
 # -----------------------------------------------------------------------------------------------------------
 # The goal: create a pure shear stress state in the XZ plane i.e. only sigma_13 = sigma_31 are non-zero
 # The shear stress state is induced by applying tangential tractions on the X and Z boundary faces.
-# And a minimal kinematic constraint is introduced to prevent free motion
 # ------------------------------------------------------------------------------------------------------------
 
 flow123d_version: 3.9.0
 
 problem: !Coupling_Sequential
-  description: "3D linear elastic cube, pure shear stress XZ plane"
+  description: "3D linear elastic cube, pure shear stress"
 
   mesh:
     mesh_file: ../uniform_stress_cube_3d.msh
@@ -65,16 +64,9 @@ problem: !Coupling_Sequential
           young_modulus: 1e9
           poisson_ratio: 0.25
 
-        # For pure shear, we can not use displacement_n as it would restrict the skew deformation
-        # Therefore, we fix only one corner point 
-        - region: .fix_point_3_DOFs
-          bc_type: displacement
-          bc_displacement: [0, 0, 0]
-
-        # Y surfaces have zero normal displacement, prevents motion in Y direction i.e. u_y = 0
-        - region: [.surface_y_plus, .surface_y_minus]
+        - region: [.surface_x_minus, .surface_y_minus, .surface_z_minus]
           bc_type: displacement_n
-          bc_displacement_n: 0
+          bc_displacement: 0.0
 
 
         # For the X surfaces (normals in X direction), the tangential traction acts in the Z direction

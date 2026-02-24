@@ -44,7 +44,7 @@ Line Loop(18) = {4, 5, -12, -8};   Plane Surface(6) = {18}; // Left surface in t
 Surface Loop(1) = {1, 2, 3, 4, 5, 6};
 Volume(1) = {1};
 
-// Definition of Physical groups (Physical Volume, then Physical Surface, and finally Physical Point):
+// Definition of Physical groups (Physical Volume, then Physical Surface):
 Physical Volume("rock") = {1};
 
 Physical Surface(".surface_z_plus")  = {2}; 
@@ -54,6 +54,3 @@ Physical Surface(".surface_x_minus") = {6};
 Physical Surface(".surface_y_plus")  = {5}; 
 Physical Surface(".surface_y_minus") = {3}; 
 
-Physical Point(".fix_point_3_DOFs") = {1};
-Physical Point(".fix_point_2_DOFs") = {2};
-Physical Point(".fix_point_1_DOFs") = {4};

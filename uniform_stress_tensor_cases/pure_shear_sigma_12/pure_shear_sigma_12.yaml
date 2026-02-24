@@ -10,7 +10,6 @@
 # -----------------------------------------------------------------------------------------------------------
 # The goal: create a pure shear stress state in the XY plane i.e. only sigma_12 = sigma_21 are non-zero
 # The shear stress state is induced by applying tangential tractions on the X and Y boundary faces.
-# And a minimal kinematic constraint is introduced to prevent free motion
 # ------------------------------------------------------------------------------------------------------------
 
 flow123d_version: 3.9.0
@@ -65,16 +64,9 @@ problem: !Coupling_Sequential
           young_modulus: 1e9
           poisson_ratio: 0.25
 
-        # For pure shear, we must can not use displacement_n as for pure tension as it would restrict the skew deformation
-        # Therefore, we fix only one corner point 
-        - region: .fix_point_3_DOFs
-          bc_type: displacement
-          bc_displacement: [0, 0, 0]
-
-        # Z-surfaces have zero normal displacement, prevents motion in Z direction i.e. u_z = 0
-        - region: [.surface_z_plus, .surface_z_minus]
+        - region: [.surface_x_minus, .surface_y_minus, .surface_z_minus]
           bc_type: displacement_n
-          bc_displacement_n: 0
+          bc_displacement: 0.0
 
         # For the X surfaces, i.e. where normals are in the X direction, the tangential traction acts in the Y direction
         - region: .surface_x_plus
