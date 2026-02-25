@@ -1,0 +1,82 @@
+=====================================================================
+Zpracovávají se následující .vtu soubory pro makro deformace:
+ ['mechanics-000000_tension_11.vtu', 'mechanics-000000_tension_22.vtu', 'mechanics-000000_tension_33.vtu', 'mechanics-000000_shear_12.vtu', 'mechanics-000000_shear_13.vtu', 'mechanics-000000_shear_23.vtu']
+Objem RVE použitý pro výpočty: 1
+ Počet hraničních elementů: 1104 (pro první soubor, ostatní se předpokládají podobné)
+=====================================================================
+
+Makroskopický tenzor deformace pro mechanics-000000_tension_11.vtu:
+[[ 1.00000000e-03 -1.79942335e-11 -2.44132070e-12]
+ [-1.79942335e-11 -2.50000000e-04  1.75734889e-12]
+ [-2.44132070e-12  1.75734889e-12 -2.50000000e-04]]
+
+Makroskopický tenzor deformace pro mechanics-000000_tension_22.vtu:
+[[-2.50000000e-04  9.00417444e-12  2.52826301e-12]
+ [ 9.00417444e-12  1.00000000e-03 -2.92746312e-12]
+ [ 2.52826301e-12 -2.92746312e-12 -2.50000000e-04]]
+
+Makroskopický tenzor deformace pro mechanics-000000_tension_33.vtu:
+[[-2.50000000e-04  2.23549318e-12 -9.26725008e-12]
+ [ 2.23549318e-12 -2.50000000e-04 -1.27898038e-11]
+ [-9.26725008e-12 -1.27898038e-11  1.00000000e-03]]
+
+Makroskopický tenzor deformace pro mechanics-000000_shear_12.vtu:
+[[ 4.90432076e-19  1.25000000e-03 -1.09553205e-19]
+ [ 1.25000000e-03 -2.07099556e-19 -7.52560752e-19]
+ [-1.09553205e-19 -7.52560752e-19  8.03410362e-19]]
+
+Makroskopický tenzor deformace pro mechanics-000000_shear_13.vtu:
+[[-1.52889447e-19  4.89842473e-19  1.25000000e-03]
+ [ 4.89842473e-19  6.81338569e-19  2.04770215e-19]
+ [ 1.25000000e-03  2.04770215e-19  4.07846364e-19]]
+
+Makroskopický tenzor deformace pro mechanics-000000_shear_23.vtu:
+[[-2.82334738e-19  4.08481639e-19  3.62106585e-19]
+ [ 4.08481639e-19 -5.84452734e-20  1.25000000e-03]
+ [ 3.62106585e-19  1.25000000e-03  7.10660643e-19]]
+
+---------------------------------------------------
+Bylo zpracováno celkem 6 zadaných souborů.
+---------------------------------------------------
+
+=====================================================================
+Zpracovávají se následující .vtu soubory pro makro napětí:
+ ['mechanics-000000_tension_11.vtu', 'mechanics-000000_tension_22.vtu', 'mechanics-000000_tension_33.vtu', 'mechanics-000000_shear_12.vtu', 'mechanics-000000_shear_13.vtu', 'mechanics-000000_shear_23.vtu']
+Objem RVE použitý pro výpočty: 1
+ Počet hraničních elementů 1104 (pro první soubor, ostatní se předpokládají podobné)
+=====================================================================
+
+Makroskopický tenzor napětí pro mechanics-000000_tension_11.vtu:
+[[ 1.00000007e+06  5.26116262e-01  4.61201370e-01]
+ [ 5.26116262e-01  2.43089076e-02  1.19443233e-01]
+ [ 4.61201370e-01  1.19443233e-01 -5.08396792e-03]]
+
+Makroskopický tenzor napětí pro mechanics-000000_tension_22.vtu:
+[[-5.11051632e-02  3.75386915e-01  9.39952594e-02]
+ [ 3.75386915e-01  1.00000007e+06  5.42922161e-01]
+ [ 9.39952594e-02  5.42922161e-01  1.24625351e-02]]
+
+Makroskopický tenzor napětí pro mechanics-000000_tension_33.vtu:
+[[ 1.32273577e-02  6.69592671e-02  5.87294404e-01]
+ [ 6.69592671e-02 -3.84766214e-02  4.86298897e-01]
+ [ 5.87294404e-01  4.86298897e-01  1.00000008e+06]]
+
+Makroskopický tenzor napětí pro mechanics-000000_shear_12.vtu:
+[[ 8.28151769e-10  1.00000000e+06 -8.48299035e-10]
+ [ 1.00000000e+06  2.54772203e-10 -4.11546353e-10]
+ [-8.48299035e-10 -4.11546353e-10  5.63473354e-10]]
+
+Makroskopický tenzor napětí pro mechanics-000000_shear_13.vtu:
+[[-4.22640949e-10 -9.00213893e-10  1.00000000e+06]
+ [-9.00213893e-10 -3.58692259e-10 -1.15804255e-10]
+ [ 1.00000000e+06 -1.15804255e-10  2.45563569e-10]]
+
+Makroskopický tenzor napětí pro mechanics-000000_shear_23.vtu:
+[[ 9.29659076e-10  9.99252710e-10  1.17326967e-09]
+ [ 9.99252710e-10 -2.66338496e-10  1.00000000e+06]
+ [ 1.17326967e-09  1.00000000e+06  8.15941337e-10]]
+
+---------------------------------------------------
+Bylo zpracováno celkem 6 zadaných souborů.
+---------------------------------------------------
+

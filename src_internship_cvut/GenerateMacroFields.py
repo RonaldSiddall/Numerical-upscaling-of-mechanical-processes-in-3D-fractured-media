@@ -94,7 +94,6 @@ def get_amount_of_boundary_elements(vtu_file):
 
 def generate_macro_deformation_for_one_file(vtu_file, volume_RVE):
     displacement_field, _, normals, _, areas = load_mesh_data_in_one_file(vtu_file)
-
     if displacement_field is not None and normals is not None and areas is not None:
         epsilon_final = compute_macro_deformation_on_RVE(displacement_field, normals, areas, volume_RVE)
         print(f"\nMakroskopický tenzor deformace pro {vtu_file}:")
