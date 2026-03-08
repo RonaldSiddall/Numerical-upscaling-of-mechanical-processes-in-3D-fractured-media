@@ -1,0 +1,44 @@
+======================================================================================================================
+                          Stress Matrix (big Sigma)
+======================================================================================================================
+
+        [     5.988867e+08    -5.176108e+07    -1.434849e+07     7.958616e+07     7.644873e+07     6.027883e+07 ]
+        [    -3.208987e+08     3.302694e+06    -2.518577e+07    -4.369282e+07    -9.011558e+07     1.936703e+07 ]
+Sigma = [    -2.369130e+08     2.447844e+07     1.239256e+08    -8.483120e+07     6.285331e+06    -3.686323e+07 ]
+        [    -2.416871e+08    -5.411028e+06    -1.515184e+07    -6.101732e+07    -4.088648e+07    -4.210245e+07 ]
+        [     5.043976e+08     4.896601e+07     1.369479e+07     2.240744e+07    -8.349954e+07     5.997508e+07 ]
+        [    -2.075038e+08     1.610062e+07    -3.152973e+07    -2.542033e+06    -4.768123e+06     3.868816e+07 ]
+
+
+======================================================================================================================
+                          Deformation Matrix (big E)
+======================================================================================================================
+
+         [     9.908544e-04    -1.159225e-02     3.215330e-02     4.506957e-03     8.474639e-02    -4.355128e-02 ]
+         [     3.967313e-01     9.791403e-04     1.440861e-02    -2.415093e-02    -3.399869e-02     6.067818e-02 ]
+E =      [    -4.187548e-01    -3.532368e-04     1.005567e-03    -1.118815e-02    -4.249791e-02    -2.650101e-02 ]
+         [     4.248624e-01    -1.469258e-01    -2.739094e-02     2.386612e-04     1.091777e-01     2.487689e-03 ]
+         [     1.056412e+00     5.067725e-02    -6.356985e-02     5.168556e-02     2.518076e-03     9.545118e-02 ]
+         [    -1.300129e+00     1.429087e-02    -4.283173e-02     2.501874e-03    -2.562315e-01    -3.473930e-02 ]
+
+
+======================================================================================================================
+                                Effective Elastic Tensor (C_s with dash) for static boundary conditions
+======================================================================================================================
+
+         [    -1.389841e+09    -1.641902e+09    -1.368466e+10    -9.500100e+07    -2.148756e+09     1.667931e+09 ]
+         [    -1.640735e+09     5.452764e+07     3.453982e+09     6.351223e+07     1.065304e+08    -7.429581e+08 ]
+C =      [     2.176189e+09     2.285449e+09     4.194248e+09    -3.179665e+08     1.674133e+08    -4.375084e+08 ]
+         [     1.620882e+09     1.648848e+09     1.319325e+10     5.655681e+08     2.371880e+09    -1.447026e+09 ]
+         [     2.381149e+09     1.671000e+09    -9.815867e+08    -1.531651e+08     7.466886e+08     9.965785e+08 ]
+         [    -4.700618e+09    -2.395095e+09    -5.814306e+09    -4.739567e+08    -1.991832e+09    -4.754583e+08 ]
+
+
+----------------------------------------------------------------------------------------------------------------------
+This result was computed using these files:
+- C:/Plocha/Semestral_internship_cvut/Python_scripts/insufficient_support_analysis/insufficient_support_sigma_11/Output_insufficient_support_analysis_sigma_11/mechanics/mechanics-000000.vtu
+- C:/Plocha/Semestral_internship_cvut/Python_scripts/insufficient_support_analysis/insufficient_support_sigma_22/Output_insufficient_support_analysis_sigma_22/mechanics/mechanics-000000.vtu
+- C:/Plocha/Semestral_internship_cvut/Python_scripts/insufficient_support_analysis/insufficient_support_sigma_33/Output_insufficient_support_analysis_sigma_33/mechanics/mechanics-000000.vtu
+- C:/Plocha/Semestral_internship_cvut/Python_scripts/insufficient_support_analysis/insufficient_support_sigma_12/Output_insufficient_support_analysis_sigma_12/mechanics/mechanics-000000.vtu
+- C:/Plocha/Semestral_internship_cvut/Python_scripts/insufficient_support_analysis/insufficient_support_sigma_13/Output_insufficient_support_analysis_sigma_13/mechanics/mechanics-000000.vtu
+- C:/Plocha/Semestral_internship_cvut/Python_scripts/insufficient_support_analysis/insufficient_support_sigma_23/Output_insufficient_support_analysis_sigma_23/mechanics/mechanics-000000.vtu
