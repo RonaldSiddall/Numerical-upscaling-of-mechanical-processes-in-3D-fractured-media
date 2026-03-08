@@ -1,0 +1,158 @@
+# Absolute path to the python project
+# Important: all other directories are relative to this path
+absolute_path_to_project: "C:/Plocha/Semestral_internship_cvut/Python_scripts/"
+
+# Geometry and mesh generation settings
+geometry_settings:
+  # L is the edge length of the 3D RVE cube (domain)
+  # The cube volume is computed as V = L^3
+  cube_edge_length_L: 1
+
+  geometry_for_static_bc:
+    # Directory for the generated .geo_unrolled file
+    dir_where_geo_file_is_created_static_bc: "Raw_data/uniform_stress_tensor_cases/"
+    # Name of the .geo_unrolled file without extension
+    name_of_geo_file_static_bc: "geometry_uniform_stress_static_bc"
+    # Support fraction d: size of statically determinate support surfaces
+    # Defined as a fraction of total edge length L (e.g., 0.005 = 0.5% of L)
+    support_fraction_d: 0.005
+
+  geometry_for_kinematic_bc:
+    # Directory for the generated .geo_unrolled file for kinematic boundary condition
+    dir_where_geo_file_is_created_kinematic_bc: "Raw_data/uniform_deformation_tensor_cases/"
+    # Name of the .geo_unrolled file for kinematic boundary condition without extension
+    name_of_geo_file_kinematic_bc: "geometry_uniform_deformation_kinematic_bc"
+
+# Mesh generation settings
+mesh_settings:
+  mesh_parameters:
+    # Global maximum element size for the bulk rock matrix
+    mesh_step_max: 0.1
+    # Minimum element size, typically used around the small support surfaces
+    mesh_step_min: 0.001
+    # GMSH algorithm tolerance settings
+    tolerance_initial_delaunay: 0.01
+    # This parameter controls the length of the transition zone in the mesh, where the element size transitions
+    # from mesh_step_min to mesh_step_max, it is defined as a fraction of the total edge length L
+    # (e.g., 0.4 means the transition zone extends over 40% of L)
+    transition_zone_length: 0.4
+
+  mesh_for_static_bc:
+    # Directory for the static mesh .msh file
+    dir_where_msh_file_is_created_static_bc: "Raw_data/uniform_stress_tensor_cases/"
+    # Name of the generated mesh (extension added automatically)
+    name_of_msh_file_static_bc: "mesh_uniform_stress_static_bc"
+
+  mesh_for_kinematic_bc:
+    dir_where_msh_file_is_created_kinematic_bc: "Raw_data/uniform_deformation_tensor_cases/"
+    name_of_msh_file_kinematic_bc: "mesh_uniform_deformation_kinematic_bc"
+
+# Flow123d .yaml input file creation settings
+yaml_creation_settings:
+  dir_of_all_yaml_templates: "src_internship_cvut/Templates_dont_delete/"
+
+  settings_for_yamls_static_bc:
+    # Directory where generated .yaml files will be saved for static cases
+    dir_where_normal_sigma_11_yaml_is_created: "Raw_data/uniform_stress_tensor_cases/pure_normal_sigma_11/"
+    dir_where_normal_sigma_22_yaml_is_created: "Raw_data/uniform_stress_tensor_cases/pure_normal_sigma_22/"
+    dir_where_normal_sigma_33_yaml_is_created: "Raw_data/uniform_stress_tensor_cases/pure_normal_sigma_33/"
+    dir_where_shear_sigma_12_yaml_is_created: "Raw_data/uniform_stress_tensor_cases/pure_shear_sigma_12/"
+    dir_where_shear_sigma_13_yaml_is_created: "Raw_data/uniform_stress_tensor_cases/pure_shear_sigma_13/"
+    dir_where_shear_sigma_23_yaml_is_created: "Raw_data/uniform_stress_tensor_cases/pure_shear_sigma_23/"
+
+    name_of_normal_sigma_11_yaml_file: "pure_normal_sigma_11_yaml"
+    name_of_normal_sigma_22_yaml_file: "pure_normal_sigma_22_yaml"
+    name_of_normal_sigma_33_yaml_file: "pure_normal_sigma_33_yaml"
+    name_of_shear_sigma_12_yaml_file: "pure_shear_sigma_12_yaml"
+    name_of_shear_sigma_13_yaml_file: "pure_shear_sigma_13_yaml"
+    name_of_shear_sigma_23_yaml_file: "pure_shear_sigma_23_yaml"
+
+  settings_for_yamls_kinematic_bc:
+    # Directories where generated .yaml files will be saved for kinematic cases
+    dir_where_normal_E_11_yaml_is_created: "Raw_data/uniform_deformation_tensor_cases/pure_normal_E_11/"
+    dir_where_normal_E_22_yaml_is_created: "Raw_data/uniform_deformation_tensor_cases/pure_normal_E_22/"
+    dir_where_normal_E_33_yaml_is_created: "Raw_data/uniform_deformation_tensor_cases/pure_normal_E_33/"
+    dir_where_shear_E_12_yaml_is_created: "Raw_data/uniform_deformation_tensor_cases/pure_shear_E_12/"
+    dir_where_shear_E_13_yaml_is_created: "Raw_data/uniform_deformation_tensor_cases/pure_shear_E_13/"
+    dir_where_shear_E_23_yaml_is_created: "Raw_data/uniform_deformation_tensor_cases/pure_shear_E_23/"
+
+    # Names of the .yaml files for kinematic cases without extension
+    name_of_normal_E_11_yaml_file: "pure_normal_E_11_yaml"
+    name_of_normal_E_22_yaml_file: "pure_normal_E_22_yaml"
+    name_of_normal_E_33_yaml_file: "pure_normal_E_33_yaml"
+    name_of_shear_E_12_yaml_file: "pure_shear_E_12_yaml"
+    name_of_shear_E_13_yaml_file: "pure_shear_E_13_yaml"
+    name_of_shear_E_23_yaml_file: "pure_shear_E_23_yaml"
+
+# Model parameter settings
+model_parameter_settings:
+  material_properties:
+    # Young's modulus of the intact rock matrix in GigaPascals (GPa)
+    young_modulus_rock_gpa: 1
+    # Poisson's ratio of the rock matrix
+    poisson_ratio_rock: 0.25
+
+  boundary_conditions:
+    # boundary_condition_type can be "static", "kinematic", or "both"
+    # "static": boundary conditions defined by applied tractions (stresses)
+    # "kinematic": boundary conditions defined by applied displacements
+    # "both": computes both effective elastic tensors (C_s and C_k) for comparison
+    boundary_condition_type: "both"
+
+    # This parameter is used for the static boundary condition computation, see theory
+    stress_parameter_alpha: 1e6
+    # This parameter is used for the kinematic boundary condition computation, see theory
+    deformation_parameter_beta: 0.01
+
+# Post-processing and macroscopic tensor evaluation settings
+simulation_output_and_effective_tensor_computation_settings:
+  # Path to the Flow123d executable batch file
+  dir_of_flow123d_executable_bat_file: "src_internship_cvut/Utility_methods/flow-noterm.bat"
+
+  tensor_evaluation_settings:
+    # Path and file name for the resulting effective elastic tensor C_s (static BC)
+    output_dir_of_file_with_tensor_static_bc: "Results_of_analysis/uniform_stress_tensor_cases_results/"
+    name_of_file_with_tensor_static_bc: "effective_elastic_tensor_C_s_static_bc"
+
+    # Path and file name for the resulting effective elastic tensor C_k (kinematic BC)
+    output_dir_of_file_with_tensor_kinematic_bc: "Results_of_analysis/uniform_deformation_tensor_cases_results/"
+    name_of_file_with_tensor_kinematic_bc: "effective_elastic_tensor_C_k_kinematic_bc"
+
+  simulation_static_bc_output_settings:
+    # Output directories for individual static loading cases
+    simulation_output_dir_for_normal_sigma_11: "Raw_data/uniform_stress_tensor_cases/pure_normal_sigma_11/"
+    simulation_output_dir_for_normal_sigma_22: "Raw_data/uniform_stress_tensor_cases/pure_normal_sigma_22/"
+    simulation_output_dir_for_normal_sigma_33: "Raw_data/uniform_stress_tensor_cases/pure_normal_sigma_33/"
+    simulation_output_dir_for_shear_sigma_12: "Raw_data/uniform_stress_tensor_cases/pure_shear_sigma_12/"
+    simulation_output_dir_for_shear_sigma_13: "Raw_data/uniform_stress_tensor_cases/pure_shear_sigma_13/"
+    simulation_output_dir_for_shear_sigma_23: "Raw_data/uniform_stress_tensor_cases/pure_shear_sigma_23/"
+
+    # Names of the output files for each static loading case without extension
+    name_of_normal_sigma_11_simulation_output_file: "Output_simulation_pure_normal_sigma_11"
+    name_of_normal_sigma_22_simulation_output_file: "Output_simulation_pure_normal_sigma_22"
+    name_of_normal_sigma_33_simulation_output_file: "Output_simulation_pure_normal_sigma_33"
+    name_of_shear_sigma_12_simulation_output_file: "Output_simulation_pure_shear_sigma_12"
+    name_of_shear_sigma_13_simulation_output_file: "Output_simulation_pure_shear_sigma_13"
+    name_of_shear_sigma_23_simulation_output_file: "Output_simulation_pure_shear_sigma_23"
+
+  simulation_kinematic_bc_output_settings:
+    # Output directories for individual kinematic loading cases
+    simulation_output_dir_for_normal_E_11: "Raw_data/uniform_deformation_tensor_cases/pure_normal_E_11/"
+    simulation_output_dir_for_normal_E_22: "Raw_data/uniform_deformation_tensor_cases/pure_normal_E_22/"
+    simulation_output_dir_for_normal_E_33: "Raw_data/uniform_deformation_tensor_cases/pure_normal_E_33/"
+    simulation_output_dir_for_shear_E_12: "Raw_data/uniform_deformation_tensor_cases/pure_shear_E_12/"
+    simulation_output_dir_for_shear_E_13: "Raw_data/uniform_deformation_tensor_cases/pure_shear_E_13/"
+    simulation_output_dir_for_shear_E_23: "Raw_data/uniform_deformation_tensor_cases/pure_shear_E_23/"
+
+    # Names of the output files for each kinematic loading case without extension
+    name_of_normal_E_11_simulation_output_file: "Output_simulation_pure_normal_E_11"
+    name_of_normal_E_22_simulation_output_file: "Output_simulation_pure_normal_E_22"
+    name_of_normal_E_33_simulation_output_file: "Output_simulation_pure_normal_E_33"
+    name_of_shear_E_12_simulation_output_file: "Output_simulation_pure_shear_E_12"
+    name_of_shear_E_13_simulation_output_file: "Output_simulation_pure_shear_E_13"
+    name_of_shear_E_23_simulation_output_file: "Output_simulation_pure_shear_E_23"
+
+optional_settings:
+  # This flag controls whether the standard output from the Flow123d simulations is printed to the console
+  # Setting this to "yes" will display the output, while "no" will suppress it
+  display_std_output_flag: "no"
