@@ -1,0 +1,79 @@
+# -----------------------------------------------------------------------------------------------------------
+# Template for Flow123d input file
+# Project: Internship CTU 2026
+# Author: Bc. Ronald Ch. Siddall
+# Description: 3D linear elastic cube subjected to a pure tension stress state, static boundary conditions
+#
+# The resulting macroscopic stress tensor has the form:
+#         | sigma_11  sigma_12  sigma_13 |      | 0  0      0  |
+# sigma = | sigma_21  sigma_22  sigma_23 |  =>  | 0  0      0  |
+#         | sigma_31  sigma_32  sigma_33 |      | 0  0  alpha  |
+#
+# i.e. a pure tension stress state in the Z direction only sigma_33 = alpha is non-zero
+#
+# The tensile stress state is induced by applying appropriate traction (static)
+# boundary conditions on the Z oriented boundary surfaces
+# -----------------------------------------------------------------------------------------------------------
+flow123d_version: 3.9.0
+
+problem: !Coupling_Sequential
+  description: "3D linear elastic cube, pure tension Z, static boundary conditions"
+
+  mesh:
+    mesh_file: /C/Plocha/Semestral_internship_cvut/Python_scripts/Raw_data/uniform_stress_tensor_cases/mesh_uniform_stress_static_bc.msh
+
+  flow_equation: !Coupling_Iterative
+    input_fields:
+      - region: rock
+
+    time:
+      end_time: 1.0
+
+    a_tol: 1e-18
+    r_tol: 1e-18
+
+    flow_equation: !Flow_Darcy_LMH
+      gravity: [0.0, 0.0, 0.0]
+
+      input_fields:
+        - region: rock
+          init_pressure: 0.0
+
+        - region: .BOUNDARY
+          bc_type: dirichlet
+          bc_pressure: 0.0
+
+      output:
+        fields: []
+
+    mechanics_equation: !Elasticity_Linear
+      output_stream:
+        file: mechanics.pvd
+        format: !vtk
+          variant: ascii
+
+      output:
+        fields:
+          - displacement
+          - stress
+
+      solver: !Petsc
+        a_tol: 1e-14
+        r_tol: 1e-14
+
+      input_fields:
+        - region: rock
+          young_modulus: 1000000000.0
+          poisson_ratio: 0.25
+
+        - region: [.support_x, .support_y, .support_z]
+          bc_type: displacement_n
+          bc_displacement: 0.0
+
+        - region: .surface_z_plus
+          bc_type: traction
+          bc_traction: [0.0, 0.0, 1e6]
+
+        - region: .surface_z_minus
+          bc_type: traction
+          bc_traction: [0.0, 0.0, -1e6]
