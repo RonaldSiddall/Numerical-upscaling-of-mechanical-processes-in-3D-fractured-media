@@ -1,0 +1,66 @@
+# ---------------------------------------------------------------------------------------------------------------
+# Flow123d Input File
+# Project: Internship CTU 2026
+# Author: Bc. Ronald Ch. Siddall
+# Description: Linear elastic cube, kinematic boundary conditions (pure tension deformation in X direction)
+# Deformation tensor is of the form:
+#           | E_11  E_12  E_13 |   in this case  | beta  0     0 |
+# epsilon = | E_21  E_22  E_23 |        =>       | 0     0     0 |
+#           | E_31  E_32  E_33 |                 | 0     0     0 |
+# ---------------------------------------------------------------------------------------------------------------
+# The goal: simulate a 3D cube under kinematic boundary conditions (pure tension E_11)
+# Boundary conditions are prescribed as displacements on the entire outer boundary using the relation:
+# u_i = E_ij * x_j. In this case: u_x = beta*x, u_y = 0.0, u_z = 0.0.
+# ---------------------------------------------------------------------------------------------------------------
+
+flow123d_version: 3.9.0
+
+problem: !Coupling_Sequential
+  description: "3D linear elastic cube - Kinematic X tension"
+  mesh:
+    mesh_file: output_mesh_path
+
+  flow_equation: !Coupling_Iterative
+    input_fields:
+      - region: rock
+    time:
+      end_time: 1.0
+    a_tol: 1e-18
+    r_tol: 1e-18
+
+    flow_equation: !Flow_Darcy_LMH
+      gravity: [0, 0, 0]
+      input_fields:
+        - region: rock
+          init_pressure: 0
+        - region: .BOUNDARY
+          bc_type: dirichlet
+          bc_pressure: 0
+      output:
+        fields: []
+
+    mechanics_equation: !Elasticity_Linear
+      output_stream:
+        file: mechanics.pvd
+        format: !vtk
+          variant: ascii
+      output:
+        fields:
+          - displacement
+          - stress
+
+      solver: !Petsc
+        a_tol: 1e-14
+        r_tol: 1e-14
+
+      input_fields:
+        - region: rock
+          young_modulus: rock_young_modulus  
+          poisson_ratio: rock_poisson_ratio
+
+        # Kinematic boundary conditions applied to the whole surface of cube 
+        
+        - region: .BOUNDARY
+          bc_type: displacement
+          bc_displacement: !FieldFormula
+            value: [deformation_parameter_beta*x, 0.0, 0.0]
