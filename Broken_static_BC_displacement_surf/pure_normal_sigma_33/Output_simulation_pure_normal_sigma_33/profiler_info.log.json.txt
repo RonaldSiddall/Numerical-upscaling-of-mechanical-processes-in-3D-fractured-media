@@ -1,0 +1,74 @@
+Program name         Flow123d (4.0.3dev)
+Program branch       JS_constraints (e651b99)
+Program build        Mar 20 2026, 14:17:25 flags:  -fPIC -pedantic -Wall -Wextra -Werror     -Wno-catch-value -Wno-deprecated-copy -Wno-misleading-indentation -Wno-implicit-fallthrough     -Wno-vla -Wno-unused-local-typedefs -Wno-deprecated-declarations
+Timer resolution     0.000023
+Task description     3D linear elastic cube, pure tension Z, static boundary conditions
+Task size            5434
+Run process count    1
+Run started          2026-03-25 19:07:32
+Run ended            2026-03-25 19:07:34
+
+--------------------------------------------------------x---------x------x-------x---------x------x------x-----------------------------------------
+                          Tag                           | ∑ Time  | %Cov | # Cls | min/max | %Rel | %Abs |                   Src                   
+--------------------------------------------------------x---------x------x-------x---------x------x------x-----------------------------------------
+Whole Program                                           |   1 776 |  96  |     1 |  1.000  | 100  | 100  | system/sys_profiler.cc:320              
+ Application::run                                       |   1 544 | 100  |     1 |  1.000  |  87  |  87  | coupling/application.cc:529             
+  HC run simulation                                     |   1 372 | 100  |     1 |  1.000  |  89  |  77  | coupling/hc_explicit_sequential.cc:217  
+   HM zero time step                                    |   1 020 | 100  |     1 |  1.000  |  74  |  57  | coupling/hm_iterative.cc:293            
+    Mechanics zero time step                            |     898 |  98  |     1 |  1.000  |  88  |  51  | mechanics/elasticity.cc:512             
+     PETSC linear solver                                |     407 | 100  |     1 |  1.000  |  45  |  23  | la/linsys_PETSC.cc:404                  
+      PETSC linear iteration                            |       8 |      |    46 |  1.000  | 100  |  23  | la/linsys_PETSC.cc:405                  
+     Elasticity_Stiffness_Assembly                      |     193 |  99  |     2 |  1.000  |  43  |  22  | coupling/generic_assembly.hh:139        
+      assemble_volume_integrals                         |       1 |      |   196 |  1.000  |  88  |  19  | coupling/generic_assembly.hh:223        
+      patch_reinit                                      |       0 |      |   196 |  1.000  |   7  |   2  | coupling/generic_assembly.hh:216        
+      others (6 more)                                   |       0 |      | 12004 |  1.000  |   4  |   1  | coupling/generic_assembly.hh            
+     Elasticity_Rhs_Assembly                            |      32 |  91  |     2 |  1.000  |   7  |   4  | coupling/generic_assembly.hh:139        
+      assemble_volume_integrals                         |       0 |      |   196 |  1.000  |  35  |   1  | coupling/generic_assembly.hh:223        
+      patch_reinit                                      |       0 |      |   196 |  1.000  |  29  |   1  | coupling/generic_assembly.hh:216        
+      others (6 more)                                   |       0 |      | 12004 |  1.000  |  32  |   1  | coupling/generic_assembly.hh            
+     Mechanics output                                   |      26 |  92  |     1 |  1.000  |   3  |   1  | mechanics/elasticity.cc:610             
+      others (4 more)                                   |       2 |  70  |     4 |  1.000  |  97  |   1  | ./                                      
+       others (8 more)                                  |       0 |      |  5567 |  1.000  |  96  |   0  | coupling/generic_assembly.hh            
+    Darcy zero time step                                |      93 |  99  |     1 |  1.000  |   9  |   5  | flow/darcy_flow_lmh.cc:661              
+     Darcy solve_nonlinear                              |      74 |  96  |     1 |  1.000  |  80  |   4  | flow/darcy_flow_lmh.cc:780              
+      Darcy assembly_linear_system                      |      46 | 100  |     1 |  1.000  |  63  |   3  | flow/darcy_flow_lmh.cc:1251             
+       Darcy_MHMatrix_Assembly                          |      46 |  52  |     1 |  1.000  |  99  |   3  | coupling/generic_assembly.hh:139        
+        others (8 more)                                 |       0 |      |  6230 |  1.000  |  57  |   1  | coupling/generic_assembly.hh            
+      others (2 more)                                   |       7 |  47  |     2 |  1.000  |  34  |   1  | ./                                      
+       others (8 more)                                  |       0 |      |  6230 |  1.000  |  58  |   0  | coupling/generic_assembly.hh            
+     Darcy output data                                  |      18 | 100  |     1 |  1.000  |  20  |   1  | flow/darcy_flow_lmh.cc:879              
+      others (2 more)                                   |       8 |      |     2 |  1.000  | 100  |   1  | flow/darcy_flow_                        
+    Elasticity_OutpuFields_Assembly                     |      20 |  90  |     1 |  1.000  |   2  |   1  | coupling/generic_assembly.hh:139        
+     others (8 more)                                    |       0 |      |  5567 |  1.000  |  97  |   1  | coupling/generic_assembly.hh            
+    HM_FlowPotential_Assembly                           |       4 |  75  |     1 |  1.000  |   0  |   0  | coupling/generic_assembly.hh:139        
+     others (8 more)                                    |       0 |      |  5610 |  1.000  |  93  |   0  | coupling/generic_assembly.hh            
+   HM step                                              |     352 |  99  |     1 |  1.000  |  26  |  20  | coupling/hm_iterative.hh:75             
+    Mechanics output                                    |     188 |  99  |     1 |  1.000  |  53  |  11  | mechanics/elasticity.cc:610             
+     OutputTime::write_time_frame                       |     161 |      |     1 |  1.000  |  86  |   9  | io/output_time.cc:205                   
+     others (3 more)                                    |       3 |  82  |     3 |  1.000  |  14  |   1  | coupling/generic_assembly.hh            
+      others (8 more)                                   |       0 |      |  5567 |  1.000  |  96  |   1  | coupling/generic_assembly.hh            
+    HM iteration                                        |     133 |  99  |     1 |  1.000  |  38  |   7  | coupling/hm_iterative.cc:322            
+     Mechanics step                                     |     127 | 100  |     1 |  1.000  |  96  |   7  | mechanics/elasticity.cc:568             
+      solve                                             |      91 |  97  |     1 |  1.000  |  72  |   5  | mechanics/elasticity.cc:595             
+       PETSC linear solver                              |      88 | 100  |     1 |  1.000  |  96  |   5  | la/linsys_PETSC.cc:404                  
+        PETSC linear iteration                          |       0 |      |     0 |  1.000  | 100  |   5  | la/linsys_PETSC.cc:405                  
+      Elasticity_Rhs_Assembly                           |      36 |  92  |     1 |  1.000  |  28  |   2  | coupling/generic_assembly.hh:139        
+       others (8 more)                                  |       0 |      |  6198 |  1.000  |  96  |   2  | coupling/generic_assembly.hh            
+      data reinit                                       |       0 |      |     1 |  1.000  |   0  |   0  | mechanics/elasticity.cc:569             
+     HM_FlowPotential_Assembly                          |       5 |  60  |     1 |  1.000  |   4  |   0  | coupling/generic_assembly.hh:139        
+      others (8 more)                                   |       0 |      |  5610 |  1.000  |  93  |   0  | coupling/generic_assembly.hh            
+    others (3 more)                                     |       4 |  83  |     3 |  1.000  |   9  |   2  | ./                                      
+     others (8 more)                                    |       0 |      |  5567 |  1.000  |  97  |   1  | coupling/generic_assembly.hh            
+  HC constructor                                        |     130 |  99  |     1 |  1.000  |   8  |   7  | coupling/hc_explicit_sequential.cc:121  
+   HM constructor                                       |      82 |  26  |     1 |  1.000  |  63  |   5  | coupling/hm_iterative.cc:225            
+    Mechanics constructor                               |      19 |      |     1 |  1.000  |  23  |   1  | mechanics/elasticity.cc:324             
+    others (3 more)                                     |       0 | 100  |     3 |  1.000  |   4  |   0  | flow/darcy_flow_lmh.cc                  
+     PETSc preallocation                                |       2 |  50  |     1 |  1.000  |  94  |   0  | flow/darcy_flow_lmh.cc:1206             
+      Darcy allocate_mh_matrix                          |       1 |      |     1 |  1.000  |  69  |   0  | flow/darcy_flow_lmh.cc:936              
+   HC read mesh                                         |      47 | 100  |     1 |  1.000  |  36  |   3  | coupling/hc_explicit_sequential.cc:126  
+    BaseMeshReader - mesh factory                       |      47 |  34  |     1 |  1.000  | 100  |   3  | io/msh_basereader.cc:53                 
+     others (2 more)                                    |       6 |   8  |     2 |  1.000  |  35  |   1  | mesh/mesh.cc                            
+      others (2 more)                                   |       0 |      |     3 |  1.000  |  14  |   0  | mesh/                                   
+  Read Input                                            |      40 |      |     1 |  1.000  |   3  |   2  | coupling/application.cc:532             
+ HC destructor                                          |     166 |  93  |     1 |  1.000  |   9  |   9  | coupling/hc_explicit_sequential.cc:293  
+  OutputTime::write_time_frame                          |      77 |      |     2 |  1.000  |  93  |   9  | io/output_time.cc:205                   

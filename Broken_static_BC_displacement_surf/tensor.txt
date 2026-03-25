@@ -1,0 +1,44 @@
+======================================================================================================================
+                          Macroscopic stress matrix Sigma for static boundary conditions
+======================================================================================================================
+
+         [     1.000000e+06     0.000000e+00     0.000000e+00     0.000000e+00     0.000000e+00     0.000000e+00 ]
+         [     0.000000e+00     1.000000e+06     0.000000e+00     0.000000e+00     0.000000e+00     0.000000e+00 ]
+Sigma =  [     0.000000e+00     0.000000e+00     1.000000e+06     0.000000e+00     0.000000e+00     0.000000e+00 ]
+         [     0.000000e+00     0.000000e+00     0.000000e+00     1.000000e+06     0.000000e+00     0.000000e+00 ]
+         [     0.000000e+00     0.000000e+00     0.000000e+00     0.000000e+00     1.000000e+06     0.000000e+00 ]
+         [     0.000000e+00     0.000000e+00     0.000000e+00     0.000000e+00     0.000000e+00     1.000000e+06 ]
+
+
+======================================================================================================================
+                          Macroscopic deformation matrix E for static boundary conditions
+======================================================================================================================
+
+         [     9.958813e-04    -2.541187e-04    -2.472542e-04     2.813014e-04    -1.788934e-18     1.372893e-05 ]
+         [    -2.541187e-04     9.958813e-04    -2.472542e-04    -2.813014e-04     6.157930e-19     1.372893e-05 ]
+E =      [    -2.472542e-04    -2.472542e-04     9.981695e-04     4.228388e-18     1.233280e-18    -9.152731e-06 ]
+         [    -4.765740e-11    -4.765739e-11     3.177160e-11     2.781301e-03    -3.117081e-18     1.588580e-10 ]
+         [     4.765768e-11     4.765768e-11    -3.177179e-11     2.761989e-04     2.500000e-03    -1.588589e-10 ]
+         [     1.372896e-05     1.372896e-05    -9.152642e-06     2.643590e-18    -1.546682e-18     2.454237e-03 ]
+
+
+======================================================================================================================
+                  Effective elastic tensor C_s (with dash) for static boundary conditions
+======================================================================================================================
+
+         [     1.207543e+09     4.075430e+08     4.000000e+08    -8.091215e+07     4.608255e-07    -7.542992e+06 ]
+         [     4.075430e+08     1.207543e+09     4.000000e+08     8.091215e+07    -1.069192e-07    -7.543003e+06 ]
+C =      [     3.999999e+08     3.999999e+08     1.200000e+09    -1.246254e-06    -4.042719e-07     5.656258e+01 ]
+         [     2.353590e+01     2.353590e+01     2.360223e-08     3.595439e+08     4.482910e-07    -2.353590e+01 ]
+         [    -2.878456e+01    -2.878456e+01    -4.495916e-08    -3.972225e+07     4.000000e+08     2.878456e+01 ]
+         [    -7.543037e+06    -7.543037e+06     7.091838e-07    -5.009179e-07     2.485962e-07     4.075430e+08 ]
+
+
+----------------------------------------------------------------------------------------------------------------------
+Result computed using the following .vtu files:
+- C:/Plocha/Semestral_internship_cvut/Python_scripts/1Raw_data/cubes_as_supports_test_static/pure_normal_sigma_11/Output_simulation_pure_normal_sigma_11/mechanics/mechanics-000000.vtu
+- C:/Plocha/Semestral_internship_cvut/Python_scripts/1Raw_data/cubes_as_supports_test_static/pure_normal_sigma_22/Output_simulation_pure_normal_sigma_22/mechanics/mechanics-000000.vtu
+- C:/Plocha/Semestral_internship_cvut/Python_scripts/1Raw_data/cubes_as_supports_test_static/pure_normal_sigma_33/Output_simulation_pure_normal_sigma_33/mechanics/mechanics-000000.vtu
+- C:/Plocha/Semestral_internship_cvut/Python_scripts/1Raw_data/cubes_as_supports_test_static/pure_shear_sigma_23/Output_simulation_pure_shear_sigma_23/mechanics/mechanics-000000.vtu
+- C:/Plocha/Semestral_internship_cvut/Python_scripts/1Raw_data/cubes_as_supports_test_static/pure_shear_sigma_13/Output_simulation_pure_shear_sigma_13/mechanics/mechanics-000000.vtu
+- C:/Plocha/Semestral_internship_cvut/Python_scripts/1Raw_data/cubes_as_supports_test_static/pure_shear_sigma_12/Output_simulation_pure_shear_sigma_12/mechanics/mechanics-000000.vtu

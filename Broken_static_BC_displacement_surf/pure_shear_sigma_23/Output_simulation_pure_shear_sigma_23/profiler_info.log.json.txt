@@ -1,0 +1,65 @@
+Program name         Flow123d (4.0.3dev)
+Program branch       JS_constraints (e651b99)
+Program build        Mar 20 2026, 14:17:25 flags:  -fPIC -pedantic -Wall -Wextra -Werror     -Wno-catch-value -Wno-deprecated-copy -Wno-misleading-indentation -Wno-implicit-fallthrough     -Wno-vla -Wno-unused-local-typedefs -Wno-deprecated-declarations
+Timer resolution     0.000023
+Task description     3D linear elastic cube, pure shear stress, static boundary conditions
+Task size            5434
+Run process count    1
+Run started          2026-03-25 19:07:35
+Run ended            2026-03-25 19:07:39
+
+--------------------------------------------------------x---------x------x-------x---------x------x------x-----------------------------------------
+                          Tag                           | ∑ Time  | %Cov | # Cls | min/max | %Rel | %Abs |                   Src                   
+--------------------------------------------------------x---------x------x-------x---------x------x------x-----------------------------------------
+Whole Program                                           |   4 164 |  98  |     1 |  1.000  | 100  | 100  | system/sys_profiler.cc:320              
+ Application::run                                       |   3 918 | 100  |     1 |  1.000  |  94  |  94  | coupling/application.cc:529             
+  HC run simulation                                     |   3 747 | 100  |     1 |  1.000  |  96  |  90  | coupling/hc_explicit_sequential.cc:217  
+   HM zero time step                                    |   2 604 | 100  |     1 |  1.000  |  70  |  63  | coupling/hm_iterative.cc:293            
+    Mechanics zero time step                            |   2 483 |  99  |     1 |  1.000  |  95  |  60  | mechanics/elasticity.cc:512             
+     PETSC linear solver                                |   1 998 | 100  |     1 |  1.000  |  80  |  48  | la/linsys_PETSC.cc:404                  
+      PETSC linear iteration                            |       7 |      |   270 |  1.000  | 100  |  48  | la/linsys_PETSC.cc:405                  
+     Elasticity_Stiffness_Assembly                      |     189 |  99  |     2 |  1.000  |  15  |   9  | coupling/generic_assembly.hh:139        
+      assemble_volume_integrals                         |       1 |      |   196 |  1.000  |  87  |   8  | coupling/generic_assembly.hh:223        
+      others (7 more)                                   |       0 |      | 12200 |  1.000  |  13  |   1  | coupling/generic_assembly.hh            
+     Elasticity_Rhs_Assembly                            |      33 |  94  |     2 |  1.000  |   3  |   2  | coupling/generic_assembly.hh:139        
+      others (8 more)                                   |       0 |      | 12396 |  1.000  |  96  |   2  | coupling/generic_assembly.hh            
+     Mechanics output                                   |      26 |  92  |     1 |  1.000  |   1  |   1  | mechanics/elasticity.cc:610             
+      others (4 more)                                   |       2 |  70  |     4 |  1.000  |  97  |   1  | ./                                      
+       others (8 more)                                  |       0 |      |  5567 |  1.000  |  95  |   0  | coupling/generic_assembly.hh            
+    Darcy zero time step                                |      95 |  99  |     1 |  1.000  |   4  |   2  | flow/darcy_flow_lmh.cc:661              
+     Darcy solve_nonlinear                              |      76 |  97  |     1 |  1.000  |  80  |   2  | flow/darcy_flow_lmh.cc:780              
+      Darcy assembly_linear_system                      |      49 |  98  |     1 |  1.000  |  64  |   1  | flow/darcy_flow_lmh.cc:1251             
+       Darcy_MHMatrix_Assembly                          |      48 |  48  |     1 |  1.000  |  98  |   1  | coupling/generic_assembly.hh:139        
+        others (8 more)                                 |       0 |      |  6230 |  1.000  |  52  |   1  | coupling/generic_assembly.hh            
+      others (2 more)                                   |       7 |  36  |     2 |  1.000  |  33  |   1  | ./                                      
+       others (8 more)                                  |       0 |      |  6230 |  1.000  |  58  |   0  | coupling/generic_assembly.hh            
+     Darcy output data                                  |      18 | 100  |     1 |  1.000  |  19  |   0  | flow/darcy_flow_lmh.cc:879              
+      others (2 more)                                   |       8 |      |     2 |  1.000  | 100  |   0  | flow/darcy_flow_                        
+    others (2 more)                                     |       7 |  87  |     2 |  1.000  |   1  |   0  | coupling/generic_assembly.hh            
+     others (8 more)                                    |       0 |      |  5567 |  1.000  |  95  |   0  | coupling/generic_assembly.hh            
+   HM step                                              |   1 142 | 100  |     1 |  1.000  |  30  |  27  | coupling/hm_iterative.hh:75             
+    HM iteration                                        |     920 | 100  |     1 |  1.000  |  81  |  22  | coupling/hm_iterative.cc:322            
+     Mechanics step                                     |     915 | 100  |     1 |  1.000  |  99  |  22  | mechanics/elasticity.cc:568             
+      solve                                             |     880 | 100  |     1 |  1.000  |  96  |  21  | mechanics/elasticity.cc:595             
+       PETSC linear solver                              |     876 | 100  |     1 |  1.000  | 100  |  21  | la/linsys_PETSC.cc:404                  
+        PETSC linear iteration                          |       7 |      |   112 |  1.000  | 100  |  21  | la/linsys_PETSC.cc:405                  
+      others (2 more)                                   |      17 |  86  |     2 |  1.000  |   4  |   1  | ./                                      
+       others (8 more)                                  |       0 |      |  6198 |  1.000  |  96  |   1  | coupling/generic_assembly.hh            
+     HM_FlowPotential_Assembly                          |       4 |  75  |     1 |  1.000  |   1  |   0  | coupling/generic_assembly.hh:139        
+      others (8 more)                                   |       0 |      |  5610 |  1.000  |  93  |   0  | coupling/generic_assembly.hh            
+    Mechanics output                                    |     191 |  99  |     1 |  1.000  |  17  |   5  | mechanics/elasticity.cc:610             
+     OutputTime::write_time_frame                       |     164 |      |     1 |  1.000  |  86  |   4  | io/output_time.cc:205                   
+     others (3 more)                                    |       3 |  80  |     3 |  1.000  |  14  |   1  | coupling/generic_assembly.hh            
+      others (8 more)                                   |       0 |      |  5567 |  1.000  |  96  |   0  | coupling/generic_assembly.hh            
+    others (3 more)                                     |       4 |  83  |     3 |  1.000  |   3  |   1  | ./                                      
+     others (8 more)                                    |       0 |      |  5567 |  1.000  |  96  |   0  | coupling/generic_assembly.hh            
+  HC constructor                                        |     136 |  99  |     1 |  1.000  |   3  |   3  | coupling/hc_explicit_sequential.cc:121  
+   HM constructor                                       |      85 |  26  |     1 |  1.000  |  63  |   2  | coupling/hm_iterative.cc:225            
+    others (4 more)                                     |       4 |      |     4 |  1.000  |  28  |   1  | ./                                      
+   HC read mesh                                         |      50 | 100  |     1 |  1.000  |  37  |   1  | coupling/hc_explicit_sequential.cc:126  
+    BaseMeshReader - mesh factory                       |      50 |  34  |     1 |  1.000  | 100  |   1  | io/msh_basereader.cc:53                 
+     others (2 more)                                    |       7 |   7  |     2 |  1.000  |  34  |   0  | mesh/mesh.cc                            
+      others (2 more)                                   |       0 |      |     3 |  1.000  |  12  |   0  | mesh/                                   
+  Read Input                                            |      34 |      |     1 |  1.000  |   1  |   1  | coupling/application.cc:532             
+ HC destructor                                          |     173 |  93  |     1 |  1.000  |   4  |   4  | coupling/hc_explicit_sequential.cc:293  
+  OutputTime::write_time_frame                          |      80 |      |     2 |  1.000  |  93  |   4  | io/output_time.cc:205                   
