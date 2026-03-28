@@ -1,0 +1,44 @@
+======================================================================================================================
+                          Macroscopic stress matrix Sigma for kinematic boundary conditions
+======================================================================================================================
+
+         [     1.196258e+07     3.962571e+06     3.887776e+06     2.329785e+02     1.651674e+02    -6.807087e-01 ]
+         [     3.962281e+06     1.196229e+07     3.886905e+06     1.904540e+03     9.411589e+02     8.411397e-01 ]
+Sigma =  [     3.868359e+06     3.868359e+06     1.160514e+07     1.380469e+03     3.625282e+03    -2.121695e-01 ]
+         [     4.817230e+02     4.817834e+02     1.452758e+03     7.910096e+06     5.634835e+02     7.102847e-01 ]
+         [     9.402828e+02     9.398471e+02     2.825927e+03     5.778929e+02     7.909484e+06    -3.747780e-01 ]
+         [     2.295274e+02     2.295746e+02     6.882382e+02     5.339048e+02     3.530515e+02     8.000032e+06 ]
+
+
+======================================================================================================================
+                          Macroscopic deformation matrix E for kinematic boundary conditions
+======================================================================================================================
+
+         [     1.000000e-02     0.000000e+00     0.000000e+00     0.000000e+00     0.000000e+00     0.000000e+00 ]
+         [     0.000000e+00     1.000000e-02     0.000000e+00     0.000000e+00     0.000000e+00     0.000000e+00 ]
+E =      [     0.000000e+00     0.000000e+00     1.000000e-02     0.000000e+00     0.000000e+00     0.000000e+00 ]
+         [     0.000000e+00     0.000000e+00     0.000000e+00     2.000000e-02     0.000000e+00     0.000000e+00 ]
+         [     0.000000e+00     0.000000e+00     0.000000e+00     0.000000e+00     2.000000e-02     0.000000e+00 ]
+         [     0.000000e+00     0.000000e+00     0.000000e+00     0.000000e+00     0.000000e+00     2.000000e-02 ]
+
+
+======================================================================================================================
+                  Effective Elastic Tensor C_k (with dash) for kinematic boundary conditions
+======================================================================================================================
+
+         [     1.196258e+09     3.962571e+08     3.887776e+08     1.164892e+04     8.258368e+03    -3.403544e+01 ]
+         [     3.962281e+08     1.196229e+09     3.886905e+08     9.522698e+04     4.705795e+04     4.205698e+01 ]
+C_k =    [     3.868359e+08     3.868359e+08     1.160514e+09     6.902345e+04     1.812641e+05    -1.060847e+01 ]
+         [     4.817230e+04     4.817834e+04     1.452758e+05     3.955048e+08     2.817418e+04     3.551424e+01 ]
+         [     9.402828e+04     9.398471e+04     2.825927e+05     2.889465e+04     3.954742e+08    -1.873890e+01 ]
+         [     2.295274e+04     2.295746e+04     6.882382e+04     2.669524e+04     1.765257e+04     4.000016e+08 ]
+
+
+----------------------------------------------------------------------------------------------------------------------
+Result computed using the following .vtu files:
+- C:/Plocha/Semestral_internship_cvut/Python_scripts/Raw_data/kinematic_convergence_analysis/mesh_kinematic_fracture_0.06_28342/pure_normal_E_11/Output_simulation_pure_normal_E_11/mechanics/mechanics-000000.vtu
+- C:/Plocha/Semestral_internship_cvut/Python_scripts/Raw_data/kinematic_convergence_analysis/mesh_kinematic_fracture_0.06_28342/pure_normal_E_22/Output_simulation_pure_normal_E_22/mechanics/mechanics-000000.vtu
+- C:/Plocha/Semestral_internship_cvut/Python_scripts/Raw_data/kinematic_convergence_analysis/mesh_kinematic_fracture_0.06_28342/pure_normal_E_33/Output_simulation_pure_normal_E_33/mechanics/mechanics-000000.vtu
+- C:/Plocha/Semestral_internship_cvut/Python_scripts/Raw_data/kinematic_convergence_analysis/mesh_kinematic_fracture_0.06_28342/pure_shear_E_23/Output_simulation_pure_shear_E_23/mechanics/mechanics-000000.vtu
+- C:/Plocha/Semestral_internship_cvut/Python_scripts/Raw_data/kinematic_convergence_analysis/mesh_kinematic_fracture_0.06_28342/pure_shear_E_13/Output_simulation_pure_shear_E_13/mechanics/mechanics-000000.vtu
+- C:/Plocha/Semestral_internship_cvut/Python_scripts/Raw_data/kinematic_convergence_analysis/mesh_kinematic_fracture_0.06_28342/pure_shear_E_12/Output_simulation_pure_shear_E_12/mechanics/mechanics-000000.vtu
